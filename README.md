@@ -1,4 +1,5 @@
 # NGO-WEBSITE
+https://a12.snumcaj.com/
 # NARISAKTI
 
 NARISAKTI is a community website and moderated marketplace that supports women-led enterprises. It includes member accounts, product submissions, customer orders, administrator access, and a MySQL database.
@@ -32,53 +33,6 @@ NARISAKTI is a community website and moderated marketplace that supports women-l
 - PHP extensions: `pdo_mysql`, `mbstring`, `fileinfo`, `session`, and `json`
 - `pdo_sqlite` for importing legacy SQLite data
 
-## Run locally
-
-Open Terminal and run:
-
-```sh
-cd "/Users/abusahilislamsardar/Desktop/NARISAKTI-dynamic 2/NARISAKTI-dynamic"
-brew services start mysql
-php scripts/setup.php
-php -S 127.0.0.1:8000 router.php
-```
-
-Then open:
-
-- Website: http://127.0.0.1:8000
-- Member account: http://127.0.0.1:8000/account.php
-- Admin dashboard: http://127.0.0.1:8000/admin/
-
-Press `Control + C` in Terminal to stop the website.
-
-> Do not open `index.html` directly or use a static Live Server extension. PHP must run for the database, login, admin panel, and APIs to work.
-
-## Database setup
-
-Default local MySQL settings:
-
-```text
-Host: 127.0.0.1
-Port: 3306
-Database: narisakti_ngo
-User: root
-Password: blank
-```
-
-If your MySQL setup uses another username or password, create your private config file:
-
-```sh
-cp config.example.php config.php
-```
-
-Then edit `config.php` with your database details. Never upload or commit `config.php` to GitHub.
-
-To create the first administrator manually:
-
-```sh
-ADMIN_EMAIL="admin@yourorganisation.org" \
-ADMIN_PASSWORD="choose-a-strong-password" \
-php scripts/setup.php
 ```
 
 The setup command creates all required MySQL tables and imports legacy data once. It does not remove existing tables or records.
@@ -132,21 +86,6 @@ router.php           Local PHP routing
 config.example.php   Database configuration template
 ```
 
-## Password recovery
-
-To reset an administrator password locally:
-
-```sh
-php scripts/reset-password.php admin "your-admin-email@example.com"
-```
-
-For a member account:
-
-```sh
-php scripts/reset-password.php member "member-email@example.com"
-```
-
-This invalidates the account’s current sessions.
 
 ## Security
 
